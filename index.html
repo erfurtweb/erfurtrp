@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erfurt RP – Willkommen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0b0e;
+      --surface: #111318;
+      --surface2: #171b22;
+      --border: rgba(255,255,255,0.07);
+      --border-light: rgba(255,255,255,0.12);
+      --text: #f0f2f5;
+      --muted: #7a8190;
+      --accent: #5865F2;
+      --accent-glow: rgba(88,101,242,0.25);
+      --accent2: #7289da;
+      --gold: #f0c060;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(10,11,14,0.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 0.88rem !important;
+      transition: background .2s, transform .2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent2) !important;
+      transform: translateY(-1px);
+      color: #fff !important;
+    }
+
+    /* ── HERO ────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% -10%, rgba(88,101,242,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(114,137,218,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(88,101,242,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88,101,242,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; max-width: 780px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(88,101,242,0.12);
+      border: 1px solid rgba(88,101,242,0.3);
+      color: var(--accent2);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeUp .7s ease both;
+    }
+
+    .hero-badge .blink {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #43b581;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 1; } 50% { opacity: 0.2; }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    h1 .accent { color: var(--accent); }
+    h1 .outline {
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp .7s .3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 0 30px rgba(88,101,242,0.3);
+    }
+
+    .btn-primary:hover {
+      background: #4752c4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(88,101,242,0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-light);
+      transition: background .2s, transform .2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface2);
+      transform: translateY(-2px);
+    }
+
+    .discord-icon {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── STATS ───────────────────────── */
+    .stats {
+      padding: 40px 5%;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-item {
+      flex: 1;
+      max-width: 200px;
+      text-align: center;
+      padding: 24px 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION SHARED ──────────────── */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 600px;
+    }
+
+    .section-body {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 580px;
+      margin-top: 16px;
+    }
+
+    /* ── ABOUT ───────────────────────── */
+    .about { background: var(--bg); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-visual {
+      position: relative;
+      height: 380px;
+    }
+
+    .about-card {
+      position: absolute;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .about-card.c1 {
+      top: 0; left: 0; right: 60px;
+      bottom: 100px;
+    }
+
+    .about-card.c2 {
+      bottom: 0; right: 0; left: 60px;
+      top: 100px;
+      background: var(--surface2);
+      border-color: rgba(88,101,242,0.3);
+    }
+
+    .card-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(88,101,242,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── FEATURES ────────────────────── */
+    .features { background: var(--surface); }
+
+    .features-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .features-header .section-title,
+    .features-header .section-body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: border-color .25s, transform .25s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(88,101,242,0.4);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(88,101,242,0.12);
+      border: 1px solid rgba(88,101,242,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── SUPPORT ─────────────────────── */
+    .support { background: var(--bg); }
+
+    .support-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .support-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .support-header .section-title,
+    .support-header .section-body {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 48px 40px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a8190' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(122,129,144,0.5);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 0 20px rgba(88,101,242,0.2);
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: #4752c4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(88,101,242,0.4);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-status {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      min-height: 24px;
+    }
+
+    .form-status.success { color: #43b581; }
+    .form-status.error   { color: #f04747; }
+
+    /* ── FOOTER ──────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 40px 5%;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-legal {
+      font-size: 0.8rem;
+      color: rgba(122,129,144,0.6);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-top: 8px;
+    }
+
+    .footer-legal span {
+      display: inline-block;
+      margin: 0 6px;
+    }
+
+    /* ── BEWERBUNG MODAL ─────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      overflow-y: auto;
+      padding: 40px 5% 60px;
+    }
+    .modal-overlay.open { display: block; }
+
+    .modal-container {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 44px;
+      position: relative;
+      animation: fadeUp .35s ease both;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border-light);
+      color: var(--muted);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: color .2s, border-color .2s;
+    }
+    .modal-close:hover { color: var(--text); border-color: var(--accent); }
+
+    .modal-header { margin-bottom: 36px; }
+    .modal-header .section-label { margin-bottom: 8px; }
+    .modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .modal-sub { color: var(--muted); font-size: 0.9rem; }
+
+    .timer-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(88,101,242,0.08);
+      border: 1px solid rgba(88,101,242,0.2);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-bottom: 32px;
+      font-size: 0.875rem;
+      color: var(--accent2);
+    }
+    .timer-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #43b581;
+      animation: blink 1s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .timer-label { color: var(--muted); }
+    .timer-value {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: var(--text);
+      margin-left: auto;
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+    }
+
+    .question-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color .2s;
+    }
+    .question-block:focus-within { border-color: rgba(88,101,242,0.4); }
+
+    .question-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .question-label {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+    .question-block textarea,
+    .question-block input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .question-block textarea { resize: vertical; min-height: 90px; }
+    .question-block textarea:focus,
+    .question-block input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .question-block textarea::placeholder,
+    .question-block input::placeholder { color: rgba(122,129,144,0.4); }
+
+    .bewerbung-discord-section {
+      background: rgba(88,101,242,0.06);
+      border: 1px solid rgba(88,101,242,0.25);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 28px;
+    }
+    .bewerbung-discord-section .section-label { margin-bottom: 16px; }
+
+    .nav-bewerbung {
+      background: linear-gradient(135deg, #f0c060, #f09030) !important;
+      color: #1a1000 !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      font-size: 0.88rem !important;
+      transition: opacity .2s, transform .2s !important;
+    }
+    .nav-bewerbung:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+      color: #1a1000 !important;
+    }
+
+    .bew-status {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.9rem;
+      min-height: 24px;
+    }
+    .bew-status.success { color: #43b581; }
+    .bew-status.error   { color: #f04747; }
+
+
+    /* ── HAMBURGER ───────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      z-index: 110;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0; right: 0;
+      background: rgba(10,11,14,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 5% 28px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 4px;
+      animation: fadeDown .2s ease both;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .mob-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600 !important;
+      margin-top: 8px;
+      border-bottom: none !important;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ──────────────────── */
+    @media (max-width: 768px) {
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { height: 260px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+      .stats { flex-wrap: wrap; }
+      .stat-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 64px 5%; }
+      .hero { padding: 100px 5% 60px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary { width: 100%; justify-content: center; max-width: 320px; }
+      .btn-primary, .btn-secondary { padding: 15px 24px; font-size: 1rem; }
+      .modal-container { padding: 32px 20px; border-radius: 16px; }
+      .modal-overlay { padding: 20px 4% 40px; }
+      .admin-container { padding: 28px 18px; }
+      .admin-overlay { padding: 20px 4% 40px; }
+      .modal-title { font-size: 1.5rem; }
+      .admin-title { font-size: 1.4rem; }
+      .admin-header { flex-direction: column; gap: 12px; }
+      .timer-bar { flex-wrap: wrap; gap: 8px; }
+      .timer-value { margin-left: 0; width: 100%; text-align: right; }
+      .shift-entry { flex-wrap: wrap; gap: 8px; }
+      .shift-entry-time { width: 100%; text-align: left; padding-left: 34px; }
+      footer { padding: 32px 5%; text-align: center; }
+      .footer-links { gap: 16px; }
+      .footer-legal { font-size: 0.75rem; }
+      .form-card { padding: 28px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.6rem; }
+      .stat-item { flex: 1 1 100%; border-right: none !important; }
+      .stat-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .hero-badge { font-size: 0.72rem; padding: 5px 12px; }
+      .section-title { font-size: 1.7rem; }
+      .question-block { padding: 16px 16px; }
+      .form-card { padding: 20px 16px; }
+      .shift-btn { padding: 18px; font-size: .95rem; }
+      nav { padding: 0 4%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="dot"></span>
+    Erfurt<span style="color:var(--accent)">RP</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Über uns</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="https://discord.com/channels/@me/1508378388761677855/1511062597343117322" class="nav-cta" target="_blank">Discord beitreten</a></li>
+  </ul>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile-Menü -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#about"    onclick="closeMobileMenu()">Über uns</a>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#support"  onclick="closeMobileMenu()">Support</a>
+  <a href="https://discord.com/channels/@me/1508378388761677855/1511062597343117322" class="mob-cta" target="_blank" onclick="closeMobileMenu()">
+    Discord beitreten
+  </a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────── -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <h1>Willkommen bei Erfurt RP</h1>
+    <p class="hero-sub">
+      Erlebe Roleplay auf höchstem Niveau. Professionell, fair und mit echter Leidenschaft – tauche ein in die Welt von Erfurt RP.
+    </p>
+    <div class="hero-actions">
+      <a href="https://discord.com/channels/@me/1508378388761677855/1511062597343117322" class="btn-primary" target="_blank">
+        <svg class="discord-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+        </svg>
+        Discord beitreten
+      </a>
+      <a href="#about" class="btn-secondary">
+        Mehr erfahren →
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ── STATS ─────────────────────────────── -->
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-num">100+</span>
+    <span class="stat-label">Aktive Spieler</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">24/7</span>
+    <span class="stat-label">Server online</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">5★</span>
+    <span class="stat-label">Qualität</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">0</span>
+    <span class="stat-label">Toleranz für Cheater</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ──────────────────────────────── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <p class="section-label">Über uns</p>
+      <h2 class="section-title">Professionelles Roleplay. Faire Community.</h2>
+      <p class="section-body">
+        Erfurt RP steht für erstklassiges Roleplay-Erlebnis. Unser engagiertes Team sorgt dafür, dass jeder Spieler fair behandelt wird und das bestmögliche Erlebnis erhält. Wir setzen auf transparente Regeln, aktive Moderation und eine Community, die wirklich zusammenhält.
+      </p>
+      <p class="section-body" style="margin-top:12px;">
+        Egal ob Neueinsteiger oder erfahrener Rollenspieler – bei uns findest du einen Server, der dir Raum gibt, deine Charaktere zu entfalten und spannende Geschichten zu erleben.
+      </p>
+      <a href="https://discord.com/channels/@me/1508378388761677855/1511062597343117322" class="btn-primary" style="margin-top:32px; display:inline-flex;" target="_blank">
+        <svg class="discord-icon" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Jetzt beitreten
+      </a>
+    </div>
+    <div class="about-visual">
+      <div class="about-card c1">
+        <div class="card-icon">🎭</div>
+        <div class="card-title">Immersives Roleplay</div>
+        <div class="card-text">Tauche tief in deine Rolle ein. Unsere Scripte und Events schaffen eine lebendige, glaubwürdige Welt für alle Spieler.</div>
+      </div>
+      <div class="about-card c2">
+        <div class="card-icon">⚖️</div>
+        <div class="card-title">Faires Team</div>
+        <div class="card-text">Unser Moderationsteam ist rund um die Uhr aktiv, reagiert schnell und behandelt alle Spieler nach denselben transparenten Regeln.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ───────────────────────────── -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <p class="section-label">Was uns ausmacht</p>
+      <h2 class="section-title">Alles für das perfekte RP-Erlebnis</h2>
+      <p class="section-body">Von professionellen Scripten bis zum aktiven Support – wir haben alles, was du für ein top Roleplay-Erlebnis brauchst.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Aktive Moderation</div>
+        <p class="feature-desc">Unser Team ist täglich aktiv und greift schnell ein – kein Toxiziät, kein Cheating, kein Drama.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗺️</div>
+        <div class="feature-title">Einzigartige Events</div>
+        <p class="feature-desc">Regelmäßige Community-Events, Fraktionskonflikte und Storylines, die von echten Spielern mitgestaltet werden.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔧</div>
+        <div class="feature-title">Custom Scripts</div>
+        <p class="feature-desc">Selbst entwickelte Scripte für maximale Immersion – Jobs, Fraktionen, Fahrzeuge und mehr.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <div class="feature-title">Community First</div>
+        <p class="feature-desc">Jede Entscheidung wird im Sinne der Community getroffen. Dein Feedback zählt und wird gehört.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Klare Regeln</div>
+        <p class="feature-desc">Transparente und faire Regeln, die für alle gelten – vom Neuling bis zum Admin. Keine grauen Zonen.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <div class="feature-title">Aktive Fraktionen</div>
+        <p class="feature-desc">Schließe dich Polizei, Mafia, Medics oder zivilen Fraktionen an und schreibe deine eigene Geschichte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUPPORT ────────────────────────────── -->
+<section class="support" id="support">
+  <div class="support-inner">
+    <div class="support-header">
+      <p class="section-label">Kontakt</p>
+      <h2 class="section-title">Support Formular</h2>
+      <p class="section-body">Hast du Fragen, Probleme oder Anregungen? Schreib uns – wir melden uns so schnell wie möglich zurück.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="supportForm">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name / Ingame-Name</label>
+            <input type="text" id="name" name="name" placeholder="Dein Name" required>
+          </div>
+          <div class="form-group">
+            <label for="discord">Discord Tag</label>
+            <input type="text" id="discord" name="discord" placeholder="user#0000 oder @username" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-Mail Adresse</label>
+          <input type="email" id="email" name="email" placeholder="deine@email.de" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Kategorie</label>
+          <select id="category" name="category" required>
+            <option value="" disabled selected>Bitte wählen …</option>
+            <option value="📢 Allgemeine Anfrage">📢 Allgemeine Anfrage</option>
+            <option value="🐛 Bug / Fehler melden">🐛 Bug / Fehler melden</option>
+            <option value="🚨 Spieler melden">🚨 Spieler melden</option>
+            <option value="🔓 Unban Antrag">🔓 Unban Antrag</option>
+            <option value="💬 Feedback / Vorschlag">💬 Feedback / Vorschlag</option>
+            <option value="❓ Sonstiges">❓ Sonstiges</option>
+          </select>
+        </div>
+
+        <!-- Zusatzfeld: nur sichtbar wenn "Spieler melden" -->
+        <div class="form-group" id="playerReportField" style="display:none;">
+          <label for="reported_player">Gemeldeter Spieler (Discord / Ingame-Name)</label>
+          <input type="text" id="reported_player" name="reported_player" placeholder="Name des gemeldeten Spielers">
+        </div>
+
+        <!-- Zusatzfeld: nur sichtbar wenn "Unban Antrag" -->
+        <div class="form-group" id="banReasonField" style="display:none;">
+          <label for="ban_reason">Grund des Bans (soweit bekannt)</label>
+          <input type="text" id="ban_reason" name="ban_reason" placeholder="z.B. RDM, Cheating …">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" placeholder="Beschreibe dein Anliegen so genau wie möglich …" required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">📨 Absenden</button>
+      </form>
+      <div class="form-status" id="formStatus"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BEWERBUNG MODAL ───────────────────── -->
+<div id="bewerbungModal" class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" onclick="closeBewerbung()" title="Schließen">✕</button>
+
+    <div class="modal-header">
+      <p class="section-label">📝 Jetzt bewerben</p>
+      <div class="modal-title">Teammitglied werden</div>
+      <p class="modal-sub">Fülle alle Felder vollständig und ehrlich aus. Deine Antworten werden von unserem Team bewertet.</p>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-bar">
+      <div class="timer-dot"></div>
+      <span class="timer-label">Bearbeitungszeit wird gemessen</span>
+      <span class="timer-value" id="timerDisplay">00:00</span>
+    </div>
+
+    <form id="bewerbungForm">
+
+      <!-- Discord Daten -->
+      <div class="bewerbung-discord-section">
+        <p class="section-label">Discord Informationen</p>
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0;">
+            <label for="bew_discord" style="display:block;font-size:.8rem;font-weight:600;letter-spacing:.05em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Dein Discord Username</label>
+            <input type="text" id="bew_discord" placeholder="@deinusername" required>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label for="bew_discord_dm" style="display:block;font-size:.8rem;font-weight:600;letter-spacing:.05em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Discord für Rückmeldung (DM)</label>
+            <input type="text" id="bew_discord_dm" placeholder="@username für Annahme/Ablehnung" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frage 1 -->
+      <div class="question-block">
+        <div class="question-num">Frage 1 / 12</div>
+        <div class="question-label">Wie lautet dein Roblox Username (mit @)?</div>
+        <input type="text" id="q1" placeholder="@DeinRobloxName" required>
+      </div>
+
+      <!-- Frage 2 -->
+      <div class="question-block">
+        <div class="question-num">Frage 2 / 12</div>
+        <div class="question-label">Wie alt bist du?</div>
+        <input type="number" id="q2" min="1" max="99" placeholder="z.B. 16" required>
+      </div>
+
+      <!-- Frage 3 -->
+      <div class="question-block">
+        <div class="question-num">Frage 3 / 12</div>
+        <div class="question-label">Erkläre den Begriff OOC (Out Of Character).</div>
+        <textarea id="q3" placeholder="Deine Erklärung …" required></textarea>
+      </div>
+
+      <!-- Frage 4 -->
+      <div class="question-block">
+        <div class="question-num">Frage 4 / 12</div>
+        <div class="question-label">Erkläre den Begriff IC (In Character).</div>
+        <textarea id="q4" placeholder="Deine Erklärung …" required></textarea>
+      </div>
+
+      <!-- Frage 5 -->
+      <div class="question-block">
+        <div class="question-num">Frage 5 / 12</div>
+        <div class="question-label">Erkläre was Meta RP bzw. Meta Gaming bedeutet.</div>
+        <textarea id="q5" placeholder="Deine Erklärung …" required></textarea>
+      </div>
+
+      <!-- Frage 6 -->
+      <div class="question-block">
+        <div class="question-num">Frage 6 / 12</div>
+        <div class="question-label">Erkläre was man unter den Begriffen FRP, VDM und RDM versteht.</div>
+        <textarea id="q6" placeholder="Deine Erklärung zu FRP, VDM und RDM …" required></textarea>
+      </div>
+
+      <!-- Frage 7 -->
+      <div class="question-block">
+        <div class="question-num">Frage 7 / 12</div>
+        <div class="question-label">Ab welchem Rang hast du die Erlaubnis zu kicken und zu bannen?</div>
+        <textarea id="q7" placeholder="Deine Antwort …" required></textarea>
+      </div>
+
+      <!-- Frage 8 -->
+      <div class="question-block">
+        <div class="question-num">Frage 8 / 12</div>
+        <div class="question-label">Wie lange kannst du innerhalb einer Woche aktiv für den Server sein?</div>
+        <textarea id="q8" placeholder="z.B. 10–15 Stunden pro Woche …" required></textarea>
+      </div>
+
+      <!-- Frage 9 -->
+      <div class="question-block">
+        <div class="question-num">Frage 9 / 12</div>
+        <div class="question-label">Wie würdest du beispielsweise eine Person begrüßen, die in den Support kommt?</div>
+        <textarea id="q9" placeholder="Deine Antwort …" required></textarea>
+      </div>
+
+      <!-- Frage 10 -->
+      <div class="question-block">
+        <div class="question-num">Frage 10 / 12</div>
+        <div class="question-label">Was sind Maßnahmen, die du ergreifen würdest, um sicherzustellen, dass es ein freundliches Umfeld im Server gibt?</div>
+        <textarea id="q10" placeholder="Deine Maßnahmen …" required></textarea>
+      </div>
+
+      <!-- Frage 11 -->
+      <div class="question-block">
+        <div class="question-num">Frage 11 / 12</div>
+        <div class="question-label">Was sind Maßnahmen, die du ergreifen würdest, um gutes RP zu schaffen und zu fördern?</div>
+        <textarea id="q11" placeholder="Deine Maßnahmen …" required></textarea>
+      </div>
+
+      <!-- Frage 12 -->
+      <div class="question-block">
+        <div class="question-num">Frage 12 / 12</div>
+        <div class="question-label">Warum entscheidest du dich als Teammitglied für Erfurt RP und nicht einen anderen Server?</div>
+        <textarea id="q12" placeholder="Deine Motivation …" required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit" id="bewSubmitBtn" style="margin-top:24px;">
+        📨 Bewerbung absenden
+      </button>
+    </form>
+    <div class="bew-status" id="bewStatus"></div>
+  </div>
+</div>
+
+
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <div class="footer-logo">Erfurt<span style="color:var(--accent)">RP</span></div>
+  <div class="footer-links">
+    <a href="#about">Über uns</a>
+    <a href="#features">Features</a>
+    <a href="#support">Support</a>
+    <a href="https://discord.com/channels/@me/1508378388761677855/1511062597343117322" target="_blank">Discord</a>
+  </div>
+  <div class="footer-legal">
+    <span>© 2025 Erfurt RP. Alle Rechte vorbehalten.</span>
+    <span>|</span>
+    <span>Sämtliche Inhalte, Grafiken, Texte und das Markenzeichen „Erfurt RP" sind rechtlich geschützt und dürfen ohne ausdrückliche schriftliche Genehmigung nicht verwendet, vervielfältigt oder verbreitet werden.</span>
+  </div>
+</footer>
+
+<script>
+  // ══════════════════════════════════════════════════════════════
+  //  ⚠️  WEBHOOK URLs – HIER EINTRAGEN!
+  // ══════════════════════════════════════════════════════════════
+  const SUPPORT_WEBHOOK_URL   = "SUPPORT_WEBHOOK_URL_HIER";     // z.B. #support-tickets
+  const BEWERBUNG_WEBHOOK_URL = "BEWERBUNG_WEBHOOK_URL_HIER";   // z.B. #bewerbungen
+
+  // ── HAMBURGER MENÜ ───────────────────────────────────────────
+  function toggleMobileMenu() {
+    const btn  = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('hamburgerBtn').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  // Schließen bei Klick außerhalb
+  document.addEventListener('click', function(e) {
+    const btn  = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  });
+
+
+  // ══════════════════════════════════════════════════════════════
+  //  SUPPORT FORM
+
+  const CATEGORY_COLORS = {
+    "📢 Allgemeine Anfrage":   5793266,
+    "🐛 Bug / Fehler melden": 16744272,
+    "🚨 Spieler melden":      15548997,
+    "🔓 Unban Antrag":        16776960,
+    "💬 Feedback / Vorschlag": 6559982,
+    "❓ Sonstiges":            7829367,
+  };
+
+  document.getElementById('category').addEventListener('change', function () {
+    const cat = this.value;
+    document.getElementById('playerReportField').style.display = cat === '🚨 Spieler melden' ? 'block' : 'none';
+    document.getElementById('banReasonField').style.display    = cat === '🔓 Unban Antrag'   ? 'block' : 'none';
+  });
+
+  document.getElementById('supportForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn    = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+    const name      = document.getElementById('name').value.trim();
+    const discord   = document.getElementById('discord').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const category  = document.getElementById('category').value;
+    const message   = document.getElementById('message').value.trim();
+    const reported  = document.getElementById('reported_player').value.trim();
+    const banReason = document.getElementById('ban_reason').value.trim();
+    const color = CATEGORY_COLORS[category] || 5793266;
+    const fields = [
+      { name: "👤 Name / Ingame", value: name,    inline: true },
+      { name: "🎮 Discord Tag",   value: discord, inline: true },
+      { name: "📧 E-Mail",        value: email,   inline: false },
+    ];
+    if (reported)  fields.push({ name: "🚨 Gemeldeter Spieler", value: reported,  inline: false });
+    if (banReason) fields.push({ name: "⛔ Ban-Grund",           value: banReason, inline: false });
+    fields.push({ name: "📝 Nachricht", value: message, inline: false });
+    const payload = {
+      username: "Erfurt RP | Support",
+      embeds: [{ title: "📬 Neues Ticket – " + category, color, fields,
+        footer: { text: "Erfurt RP Website · " + new Date().toLocaleString("de-DE") } }]
+    };
+    btn.disabled = true; btn.textContent = "⏳ Wird gesendet …";
+    status.className = "form-status"; status.textContent = "";
+    try {
+      if (SUPPORT_WEBHOOK_URL === "SUPPORT_WEBHOOK_URL_HIER") throw new Error("Support-Webhook nicht eingetragen!");
+      const res = await fetch(SUPPORT_WEBHOOK_URL, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
+      if (res.ok || res.status === 204) {
+        status.className = "form-status success";
+        status.textContent = "✅ Erfolgreich übermittelt! Wir melden uns bald.";
+        document.getElementById('supportForm').reset();
+        document.getElementById('playerReportField').style.display = 'none';
+        document.getElementById('banReasonField').style.display = 'none';
+      } else throw new Error("Serverfehler: " + res.status);
+    } catch (err) {
+      status.className = "form-status error";
+      status.textContent = "❌ Fehler: " + err.message;
+    }
+    btn.disabled = false; btn.textContent = "📨 Absenden";
+  });
+
+  // ── BEWERBUNG MODAL + TIMER + COOLDOWN ──────────────────────
+
+  const COOLDOWN_MS  = 60 * 60 * 1000; // 1 Stunde
+  const COOLDOWN_KEY = 'erfurtRP_bewCooldown';
+
+  let timerInterval    = null;
+  let cooldownInterval = null;
+  let timerSeconds     = 0;
+  let bewerbungAbgeschickt = false; // wird true nach erfolgreichem Absenden
+
+  function formatTime(s) {
+    const m   = String(Math.floor(s / 60)).padStart(2,'0');
+    const sec = String(s % 60).padStart(2,'0');
+    return m + ':' + sec;
+  }
+
+  function formatCooldown(ms) {
+    const total = Math.ceil(ms / 1000);
+    const m     = String(Math.floor(total / 60)).padStart(2,'0');
+    const s     = String(total % 60).padStart(2,'0');
+    return m + ':' + s;
+  }
+
+  // Cooldown prüfen – gibt verbleibende Ms zurück (0 = kein Cooldown)
+  function getCooldownLeft() {
+    const stored = localStorage.getItem(COOLDOWN_KEY);
+    if (!stored) return 0;
+    const diff = COOLDOWN_MS - (Date.now() - parseInt(stored, 10));
+    return diff > 0 ? diff : 0;
+  }
+
+  function openBewerbung() {
+    const left = getCooldownLeft();
+
+    if (left > 0) {
+      // ── Cooldown-Sperre anzeigen statt Modal ──
+      showCooldownOverlay(left);
+      return;
+    }
+
+    // ── Modal normal öffnen ──
+    bewerbungAbgeschickt = false;
+    document.getElementById('bewerbungModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    timerSeconds = 0;
+    document.getElementById('timerDisplay').textContent = '00:00';
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      timerSeconds++;
+      document.getElementById('timerDisplay').textContent = formatTime(timerSeconds);
+    }, 1000);
+  }
+
+  function closeBewerbung() {
+    clearInterval(timerInterval);
+
+    // Cooldown nur setzen wenn NICHT erfolgreich abgeschickt
+    if (!bewerbungAbgeschickt) {
+      localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
+    }
+
+    document.getElementById('bewerbungModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Cooldown-Overlay ────────────────────────────────────────
+  function showCooldownOverlay(leftMs) {
+    // Altes Overlay entfernen falls vorhanden
+    const old = document.getElementById('cooldownOverlay');
+    if (old) old.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'cooldownOverlay';
+    overlay.style.cssText = `
+      position:fixed;inset:0;z-index:300;
+      background:rgba(0,0,0,0.82);backdrop-filter:blur(10px);
+      display:flex;align-items:center;justify-content:center;
+      padding:20px;
+    `;
+
+    const box = document.createElement('div');
+    box.style.cssText = `
+      background:#111318;border:1px solid rgba(240,192,96,0.35);
+      border-radius:20px;padding:44px 40px;max-width:440px;width:100%;
+      text-align:center;
+    `;
+
+    const countdownId = 'cdCountdown';
+    box.innerHTML = `
+      <div style="font-size:3rem;margin-bottom:16px;">⏳</div>
+      <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#f0f2f5;margin-bottom:10px;">
+        Cooldown aktiv
+      </div>
+      <p style="color:#7a8190;font-size:0.9rem;margin-bottom:28px;line-height:1.6;">
+        Du hast das Bewerbungsformular verlassen ohne es abzuschicken.<br>
+        Bitte warte, bevor du dich erneut bewirbst.
+      </p>
+      <div style="
+        background:rgba(240,192,96,0.08);border:1px solid rgba(240,192,96,0.25);
+        border-radius:12px;padding:18px;margin-bottom:28px;
+      ">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f0c060;margin-bottom:8px;">
+          Verbleibende Zeit
+        </div>
+        <div id="${countdownId}" style="font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#f0f2f5;letter-spacing:.04em;">
+          ${formatCooldown(leftMs)}
+        </div>
+      </div>
+      <button onclick="document.getElementById('cooldownOverlay').remove();clearInterval(window._cdInt);"
+        style="background:#171b22;border:1px solid rgba(255,255,255,0.12);color:#7a8190;
+               padding:10px 28px;border-radius:10px;cursor:pointer;font-size:.9rem;">
+        Schließen
+      </button>
+    `;
+
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+
+    // Countdown-Ticker
+    clearInterval(window._cdInt);
+    window._cdInt = setInterval(() => {
+      const rem = getCooldownLeft();
+      const el  = document.getElementById(countdownId);
+      if (!el) { clearInterval(window._cdInt); return; }
+      if (rem <= 0) {
+        clearInterval(window._cdInt);
+        overlay.remove();
+      } else {
+        el.textContent = formatCooldown(rem);
+      }
+    }, 1000);
+
+    // Klick außerhalb schließt
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) { clearInterval(window._cdInt); this.remove(); }
+    });
+  }
+
+  // ESC schließt Modal
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBewerbung(); });
+
+  // Klick außerhalb schließt Modal
+  document.getElementById('bewerbungModal').addEventListener('click', function(e) {
+    if (e.target === this) closeBewerbung();
+  });
+
+  // ── BEWERBUNG ABSENDEN ───────────────────────────────────────
+
+  document.getElementById('bewerbungForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn    = document.getElementById('bewSubmitBtn');
+    const status = document.getElementById('bewStatus');
+
+    clearInterval(timerInterval);
+    const finalTime = formatTime(timerSeconds);
+
+    const discordUser   = document.getElementById('bew_discord').value.trim();
+    const discordDM     = document.getElementById('bew_discord_dm').value.trim();
+    const roblox        = document.getElementById('q1').value.trim();
+    const alter         = document.getElementById('q2').value.trim();
+    const ooc           = document.getElementById('q3').value.trim();
+    const ic            = document.getElementById('q4').value.trim();
+    const metarp        = document.getElementById('q5').value.trim();
+    const begriffe      = document.getElementById('q6').value.trim();
+    const rangKick      = document.getElementById('q7').value.trim();
+    const aktivitaet    = document.getElementById('q8').value.trim();
+    const begruessung   = document.getElementById('q9').value.trim();
+    const umfeld        = document.getElementById('q10').value.trim();
+    const rpFoerdern    = document.getElementById('q11').value.trim();
+    const motivation    = document.getElementById('q12').value.trim();
+
+    // Felder für Discord Embed (max 1024 Zeichen pro Feld)
+    const trim = (s, n=900) => s.length > n ? s.slice(0,n) + '…' : s;
+
+    const payload = {
+      username: "Erfurt RP | Bewerbungen",
+      embeds: [{
+        title: "📋 Neue Bewerbung – Teammitglied",
+        color: 4886754,
+        fields: [
+          { name: "🎮 Discord",          value: discordUser,        inline: true  },
+          { name: "📩 DM-Ziel",          value: discordDM,          inline: true  },
+          { name: "🕹️ Roblox Username",  value: roblox,             inline: true  },
+          { name: "🎂 Alter",            value: alter + " Jahre",   inline: true  },
+          { name: "⏱️ Bearbeitungszeit", value: "**" + finalTime + "**", inline: true },
+          { name: "\u200b",              value: "\u200b",           inline: false },
+          { name: "❓ OOC",              value: trim(ooc),          inline: false },
+          { name: "🎭 IC",               value: trim(ic),           inline: false },
+          { name: "🧠 Meta RP / Gaming", value: trim(metarp),       inline: false },
+          { name: "📖 FRP / VDM / RDM",  value: trim(begriffe),     inline: false },
+          { name: "⚠️ Kick & Ban Rang",  value: trim(rangKick),     inline: false },
+          { name: "📅 Aktivität/Woche",  value: trim(aktivitaet),   inline: false },
+          { name: "👋 Supportbegrüßung", value: trim(begruessung),  inline: false },
+          { name: "🌍 Freundl. Umfeld",  value: trim(umfeld),       inline: false },
+          { name: "🎯 RP fördern",       value: trim(rpFoerdern),   inline: false },
+          { name: "💡 Motivation",       value: trim(motivation),   inline: false },
+        ],
+        footer: { text: "Erfurt RP Bewerbung · " + new Date().toLocaleString("de-DE") }
+      }],
+      // Buttons für den Bot (Annehmen / Ablehnen)
+      components: [{
+        type: 1,
+        components: [
+          {
+            type: 2, label: "✅ Annehmen",  style: 3,
+            custom_id: "bew_accept__" + encodeURIComponent(discordDM.replace('@',''))
+          },
+          {
+            type: 2, label: "❌ Ablehnen", style: 4,
+            custom_id: "bew_reject__" + encodeURIComponent(discordDM.replace('@',''))
+          }
+        ]
+      }]
+    };
+
+    btn.disabled = true; btn.textContent = "⏳ Wird gesendet …";
+    status.className = "bew-status"; status.textContent = "";
+
+    try {
+      if (BEWERBUNG_WEBHOOK_URL === "BEWERBUNG_WEBHOOK_URL_HIER") throw new Error("Bewerbungs-Webhook nicht eingetragen!");
+      const res = await fetch(BEWERBUNG_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok || res.status === 204) {
+        bewerbungAbgeschickt = true;              // Cooldown NICHT setzen
+        localStorage.removeItem(COOLDOWN_KEY);   // Alten Cooldown löschen
+        status.className = "bew-status success";
+        status.textContent = "✅ Deine Bewerbung wurde erfolgreich eingereicht! Wir melden uns per DM bei dir.";
+        document.getElementById('bewerbungForm').reset();
+        setTimeout(closeBewerbung, 3000);
+      } else throw new Error("Serverfehler: " + res.status);
+    } catch (err) {
+      status.className = "bew-status error";
+      status.textContent = "❌ Fehler: " + err.message;
+      // Timer weiterlaufen lassen bei Fehler
+      timerInterval = setInterval(() => { timerSeconds++; document.getElementById('timerDisplay').textContent = formatTime(timerSeconds); }, 1000);
+    }
+
+    btn.disabled = false; btn.textContent = "📨 Bewerbung absenden";
+  });
+
+  // ══════════════════════════════════════════════════════════════
+  //  ADMIN PANEL
+  // ══════════════════════════════════════════════════════════════
+
+
+</script>
+
+</body>
+</html>
